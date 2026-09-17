@@ -1,2 +1,1 @@
-# site
-# site
+This repository/folder is only for my dedicated site
