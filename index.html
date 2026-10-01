@@ -51,9 +51,17 @@
   cursor: pointer;
   padding: 0;
 }
+.undertext {
+    display: none;
+    font-family: 'Times New Roman', Times, serif;
+    color:#000;
+}
 </style>
 </head>
-    <body>
+    <body id="background-color">
+        <div class="undertext" id="text">
+            stop looking for things that don't exist
+        </div>
         <div class="page-content" id="menu">
             <div class="window">
                 <div class="titlebar">
@@ -70,11 +78,15 @@
                 </div>
             </div>
         </div>
-    </body>
-    <script>
+        <script>
         function X(){
             var menu = document.getElementById("menu");
             menu.style.display = "none";
+            var text = document.getElementById("text");
+            text.style.display = "block";
+            var body = document.getElementById("background-color");
+            body.style.background = "#696764"
         }
     </script>
+    </body>
     </html>
