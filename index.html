@@ -70,8 +70,8 @@
     <body id="background-color">
         <div class="undertext" id="text">
             stop looking for things that don't exist<br>
-            <input type = "password" name="password_field" class="password_field">
-            <button id="submit" type="submit" class="sub_button" disabled="true">
+            <input type = "password" name="password_field" class="password_field" id="field">
+            <button id="submit" type="submit" class="sub_button" disabled=true onclick="clearfield()">
                 submit
             </button>
         </div>
@@ -93,19 +93,34 @@
             </div>
         </div>
         <script>
+        var stage = 0;
+        function submit(){
+            var field = document.getElementById("field");
+            var sub_button = document.getElementById("submit");
+            field.addEventListener("input",function(){
+                console.log(field.value);
+                if (field.value === "feelingblue"){
+                    sub_button.style.backgroundColor = "#FFFFFF";
+                    sub_button.disabled = false;
+                }
+                else{
+                    sub_button.style.backgroundColor = "#373636";
+                    sub_button.disabled = true;
+                }
+            })
+        }
         function X(){
             var menu = document.getElementById("menu");
             var text = document.getElementById("text");
             var body = document.getElementById("background-color");
-            var password_field = document.getElementsByClassName("password_field")[0];
             menu.style.display = "none";
             text.style.display = "block";
             body.style.background = "#696764";
+            submit()
         }
-
-        function submit(){
-            var field = document.getElementsByClassName("password_field");
-            var sub_button = document.getElementById("submit");
+        function clearfield(){
+            var field = document.getElementById("field");
+            field.value = "";
         }
     </script>
     </body>
